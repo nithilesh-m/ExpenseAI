@@ -274,12 +274,6 @@ const Homepage = () => {
                 >
                   👉 Sign Up Now
                 </Link>
-                <Link
-                  to="/login"
-                  className="bg-indigo-700 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-800 transition shadow-xl border-2 border-white"
-                >
-                  👉 Start Tracking
-                </Link>
               </>
             )}
           </div>
@@ -294,7 +288,7 @@ const Homepage = () => {
       <footer className="bg-gray-900 text-gray-400 py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm">
-            © 2024 ExpenseAI. Made with ❤️ for smart expense tracking.
+            © 2025 ExpenseAI. Made with ❤️ by Nithilesh Muchakurthi for smart expense tracking.
           </p>
         </div>
       </footer>
