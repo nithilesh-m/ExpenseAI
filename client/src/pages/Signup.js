@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import Navbar from '../components/Navbar';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -28,7 +29,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <Navbar />
+      <div className="flex items-center justify-center px-4 py-20">
       <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Sign Up
@@ -105,6 +108,7 @@ const Signup = () => {
             ← Back to Home
           </Link>
         </p>
+      </div>
       </div>
     </div>
   );
