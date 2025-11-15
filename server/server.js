@@ -26,19 +26,28 @@ if (!process.env.JWT_SECRET) {
 const app = express();
 
 // CORS Configuration - Production Ready (Mobile & Desktop Support)
+const allowedOrigins = [
+  "https://expense-ai-1.vercel.app",   // your Vercel domain
+  "http://localhost:3000"              // local development
+];
+
 const corsOptions = {
-  origin: '*', // Allow all origins (for production, you can restrict to your Vercel domain)
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  credentials: false, // Set to true if you need cookies
-  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow mobile apps/postman
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS: " + origin));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 200
 };
 
-// Apply CORS middleware
 app.use(cors(corsOptions));
-
-// Handle preflight requests (important for mobile browsers)
-app.options('*', cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // Body parsing middleware
 app.use(express.json());
