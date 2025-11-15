@@ -27,7 +27,8 @@ const app = express();
 
 // CORS Configuration - Production Ready (Mobile & Desktop Support)
 const allowedOrigins = [
-  "https://expense-ai-1.vercel.app",   // your Vercel domain
+  "https://expense-ai-1.vercel.app",
+  "https://expense--ai.vercel.app",  // your Vercel domain
   "http://localhost:3000"              // local development
 ];
 
