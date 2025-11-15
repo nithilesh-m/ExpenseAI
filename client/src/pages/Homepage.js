@@ -133,7 +133,7 @@ const Homepage = () => {
             {/* Feature 4 */}
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
               <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Ultra-Fast & Minimal UI</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Ultra-Fast, Minimal UI & Secure</h3>
               <p className="text-gray-700 mb-4">
                 Focused on simplicity:
               </p>
@@ -150,20 +150,25 @@ const Homepage = () => {
                 <li className="flex items-center">
                   <span className="mr-2">✓</span> No clutter
                 </li>
+                <li className="flex items-center">
+                  <span className="mr-2">✓</span> Only you can access your history, We never sell or share your data.
+                </li>
               </ul>
               <p className="text-gray-600 mt-3">Perfect for students, families, and small businesses.</p>
             </div>
 
             {/* Feature 5 */}
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-              <div className="text-4xl mb-4">🔐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">100% Secure</h3>
+              <div className="text-4xl mb-4">🎤</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Add expenses by simply speaking.</h3>
               <p className="text-gray-700">
-                Your data is encrypted and stored safely.
+                Voice-Powered Expense Input.
                 <br />
-                Only you can access your history.
+                Typing is optional now.
                 <br />
-                We never sell or share your data.
+                Hands-free tracking.
+                <br />
+                Perfect for quick entries.
               </p>
             </div>
 

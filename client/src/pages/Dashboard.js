@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import API_URL from '../config/api';
+import VoiceInput from '../components/VoiceInput';
 
 const Dashboard = () => {
   const { user, token, logout } = useAuth();
@@ -107,19 +108,35 @@ const Dashboard = () => {
           <h2 className="text-xl font-semibold mb-4 text-gray-800">
             Add Expense (Type naturally like WhatsApp)
           </h2>
-          <form onSubmit={handleSubmit} className="flex gap-4">
-            <input
-              type="text"
-              value={expenseText}
-              onChange={(e) => setExpenseText(e.target.value)}
-              placeholder="e.g., 200 dosa idly or income 500 saree sale"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              disabled={loading}
-            />
+          <form onSubmit={handleSubmit} className="flex gap-4 items-start">
+            <div className="flex-1 flex flex-col gap-2">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={expenseText}
+                  onChange={(e) => setExpenseText(e.target.value)}
+                  placeholder="e.g., 200 dosa idly or income 500 saree sale"
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  disabled={loading}
+                />
+                <VoiceInput
+                  onResult={(text) => {
+                    setExpenseText(text);
+                    setError(''); // Clear any previous errors
+                  }}
+                  disabled={loading}
+                />
+              </div>
+              {expenseText && (
+                <p className="text-xs text-gray-500 italic">
+                  💬 "{expenseText}"
+                </p>
+              )}
+            </div>
             <button
               type="submit"
               disabled={loading || !expenseText.trim()}
-              className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition disabled:opacity-50"
+              className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition disabled:opacity-50 whitespace-nowrap"
             >
               {loading ? 'Adding...' : 'Add'}
             </button>
